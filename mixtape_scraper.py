@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import sys, requests, string, random, time, argparse
+import sys, requests, string, random, time, argparse, os
 from threading import Thread
 from bs4 import BeautifulSoup
 from urllib.request import Request, urlopen
@@ -133,6 +133,9 @@ def scraper():
 args()  # Assigns arguments parsed 
 proxies = []  # Will contain proxies [ip, port]
 get_proxies()  # Gets a list of proxies to use
+
+if not os.path.exists("files"):
+    os.makedirs("files")
 
 # Start <threads> threads running scraper()
 if arguments.threads:
