@@ -16,7 +16,7 @@ Format Groups:
   text    - text, configs and data
   archive - archive files
                 
-Examples
+Examples:
   # scrape for common formats with 24 threads and proxies
   python3 mixtape_scraper.py -t 24 -p common    
 
