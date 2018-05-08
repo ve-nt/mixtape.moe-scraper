@@ -18,11 +18,11 @@ Format Groups:
   archive - archive files
                 
 Examples:
-  # scrape for common formats with 24 threads and proxies
-  python3 mixtape_scraper.py -t 24 -p common    
+  scrape for common formats with 24 threads and proxies
+      python3 mixtape_scraper.py -t 24 -p common    
 
-  # scrape for all formats with 12 threads
-  python3 mixtape_scraper.py -t 12 all    
+  scrape for all formats with 12 threads
+      python3 mixtape_scraper.py -t 12 all    
 
-  # scrape for .wav formats with 1 thread
-  python3 mixtape_scraper.py .wav
+  scrape for .wav formats with 1 thread
+      python3 mixtape_scraper.py .wav
