@@ -117,9 +117,10 @@ def scraper():
                     print("proxy: " + str(proxy_to_use))
             else:
                 filetest = requests.get(test_url)  # Requesting the URL
+                #filetest = requests.get("https://my.mixtape.moe/mwzaul.jpg")  # URL to exist for debugging
 
 
-            if filetest.status_code == requests.codes.ok:  # If the URL is found, write to files/ 
+            if not "404" in filetest.text: # If the URL is found, write to files/ 
                 print("\033[0;32mFound file: \033[00m", test_url)
                 with open(filename, "wb") as file:
                     file.write(filetest.content)
