@@ -35,15 +35,15 @@ Examples:
 
 
     file_ext = arguments.formats
-    if file_ext == "all":
+    if "all" in file_ext:
         file_ext = ["", ".wav", ".mp3", ".flac", ".aif", ".m4a", ".opus", ".webm", ".mp4", ".mkv", ".flv", ".vob", ".gif", ".mpeg", ".avi", ".png", ".jpg", ".jpeg", ".bmp", ".pdf", ".txt", ".config", ".ini", ".json", ".data", ".epub", ".chm", ".rar", ".zip", ".tar.gz"]
-    elif file_ext == "common":
+    elif "common" in file_ext:
         file_ext = ["", ".wav", ".mp3", ".flac", ".aif", ".webm", ".mp4", ".flv", ".gif", ".png", ".jpg", ".jpeg", ".txt", ".config", ".pdf", ".zip", ".rar", ".tar.gz", ".bz2", ".gz", ".7z"] 
-    elif file_ext == "media":
+    elif "media" in file_ext:
         file_ext = ["", ".wav", ".mp3", ".flac", ".aif", ".webm", ".mp4", ".mkv", ".flv", ".gif", ".png", ".jpg", ".jpeg"] 
-    elif file_ext == "text":
+    elif "text" in file_ext:
         file_ext = ["", ".txt", ".config", ".ini", ".json", ".data", ".log"] 
-    elif file_ext == "archive":
+    elif "archive" in file_ext:
         file_ext = ["", ".rar", ".zip", ".tar.gz", ".bz2", ".iso", ".gz", ".7z", ".pea"]
     else:
         if arguments.verbose:
