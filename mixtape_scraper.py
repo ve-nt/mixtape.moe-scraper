@@ -6,7 +6,7 @@ from urllib.request import Request, urlopen
 
 
 def args():
-    global file_ext
+    global file_ext 
     global arguments
     parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter, epilog="""
 Format Groups:
@@ -27,10 +27,10 @@ Examples:
   python3 mixtape_scraper.py .wav
 """)
 
-    parser.add_argument("formats", type=str, help="File extensions to search for")
     parser.add_argument("-t", "--threads", type=int, help="Number of threads to use")
     parser.add_argument("-p", "--proxy", action="store_true", help="Use rotating proxies")
     parser.add_argument("-v", "--verbose", action="store_true", help="Verbose output")
+    parser.add_argument("formats", type=str, nargs='+', help="File extensions to search for")
     arguments = parser.parse_args()
 
 
@@ -46,8 +46,10 @@ Examples:
     elif file_ext == "archive":
         file_ext = ["", ".rar", ".zip", ".tar.gz", ".bz2", ".iso", ".gz", ".7z", ".pea"]
     else:
-        file_ext = file_ext.split()
-
+        print("Scraping for:", end=" ")
+        for n in range(len(file_ext)):
+            print(file_ext[n], end=" ")
+        print("\n")
 
 # Function to get list of proxies
 def get_proxies():
