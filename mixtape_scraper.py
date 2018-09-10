@@ -46,10 +46,11 @@ Examples:
     elif file_ext == "archive":
         file_ext = ["", ".rar", ".zip", ".tar.gz", ".bz2", ".iso", ".gz", ".7z", ".pea"]
     else:
-        print("Scraping for:", end=" ")
-        for n in range(len(file_ext)):
-            print(file_ext[n], end=" ")
-        print("\n")
+        if arguments.verbose:
+            print("Scraping for:", end=" ")
+            for n in range(len(file_ext)):
+                print(file_ext[n], end=" ")
+            print("\n", end="")
 
 # Function to get list of proxies
 def get_proxies():
