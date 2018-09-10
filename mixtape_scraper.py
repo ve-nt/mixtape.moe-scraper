@@ -36,21 +36,32 @@ Examples:
 
     file_ext = arguments.formats
     if "all" in file_ext:
-        file_ext = ["", ".wav", ".mp3", ".flac", ".aif", ".m4a", ".opus", ".webm", ".mp4", ".mkv", ".flv", ".vob", ".gif", ".mpeg", ".avi", ".png", ".jpg", ".jpeg", ".bmp", ".pdf", ".txt", ".config", ".ini", ".json", ".data", ".epub", ".chm", ".rar", ".zip", ".tar.gz"]
-    elif "common" in file_ext:
-        file_ext = ["", ".wav", ".mp3", ".flac", ".aif", ".webm", ".mp4", ".flv", ".gif", ".png", ".jpg", ".jpeg", ".txt", ".config", ".pdf", ".zip", ".rar", ".tar.gz", ".bz2", ".gz", ".7z"] 
-    elif "media" in file_ext:
-        file_ext = ["", ".wav", ".mp3", ".flac", ".aif", ".webm", ".mp4", ".mkv", ".flv", ".gif", ".png", ".jpg", ".jpeg"] 
-    elif "text" in file_ext:
-        file_ext = ["", ".txt", ".config", ".ini", ".json", ".data", ".log"] 
-    elif "archive" in file_ext:
-        file_ext = ["", ".rar", ".zip", ".tar.gz", ".bz2", ".iso", ".gz", ".7z", ".pea"]
-    else:
-        if arguments.verbose:
-            print("Scraping for:", end=" ")
-            for n in range(len(file_ext)):
-                print(file_ext[n], end=" ")
-            print("\n", end="")
+        file_ext.remove("all")
+        file_ext = file_ext + ["", ".wav", ".mp3", ".flac", ".aif", ".m4a", ".opus", ".webm", ".mp4", ".mkv", ".flv", ".vob", ".gif", ".mpeg", ".avi", ".png", ".jpg", ".jpeg", ".bmp", ".pdf", ".txt", ".config", ".ini", ".json", ".data", ".epub", ".chm", ".rar", ".zip", ".tar.gz"]
+
+    if "common" in file_ext:
+        file_ext.remove("common")
+        file_ext = file_ext + ["", ".wav", ".mp3", ".flac", ".aif", ".webm", ".mp4", ".flv", ".gif", ".png", ".jpg", ".jpeg", ".txt", ".config", ".pdf", ".zip", ".rar", ".tar.gz", ".bz2", ".gz", ".7z"] 
+
+    if "media" in file_ext:
+        file_ext.remove("media")
+        file_ext = file_ext + ["", ".wav", ".mp3", ".flac", ".aif", ".webm", ".mp4", ".mkv", ".flv", ".gif", ".png", ".jpg", ".jpeg"] 
+
+    if "text" in file_ext:
+        file_ext.remove("text")
+        file_ext = file_ext + ["", ".txt", ".config", ".ini", ".json", ".data", ".log"] 
+
+    if "archive" in file_ext:
+        file_ext.remove("archive")
+        file_ext = file_ext + ["", ".rar", ".zip", ".tar.gz", ".bz2", ".iso", ".gz", ".7z", ".pea"]
+
+    if arguments.verbose:
+        print("Scraping for:", end=" ")
+        for n in range(len(file_ext)):
+            print(file_ext[n], end=" ")
+        print("\n", end="")
+
+    file_ext = list(set(file_ext))
 
 # Function to get list of proxies
 def get_proxies():
